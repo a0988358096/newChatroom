@@ -2,44 +2,46 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Chat room with Socket.io and node.js</title>
+	<title>MTChatroom</title>
 
 	<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="public/all.css">
 	<script type="text/javascript" src="public/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div id="nickWrap">
-			<form id="setNick" role="form">
-				<h2 class="form-signin-heading">請輸入您的名字:</h2>
+	<div class="container">           <!--the structure of the whole chatroom-->
+		<div id="N1background" style="width:1000px;height:750px">
+			<div id="nickWrap"  style="width:500px;height:500px"  align="center">            <!--the login page-->
+			     <form id="setNick" style="width:500px;height:500px" role="form" valign="middle">
+				<h2 class="form-signin-heading">Please input your name:</h2>
 				<p id="nickError"></p>
-				<div style="margin:20px;">
-					<input size="35" id="txtNickname" required="" />
+				<div style="margin:20px;height:40px">
+					<input size="40" id="txtNickname" style="font-size:20px;height:40px;width:300px;" required="" />
 				</div>
-				<input type="Submit" class="btn btn-lg btn-primary">
-			</form>
+				<input id="signButton" type="Submit" class="btn btn-lg btn-primary" value="Submit" style="font-size:20px"> 
+			     </form>
+		          </div>
 		</div>
 
 
 		<div id="contentWrap">
 			<div id="chatWrap" class="panel panel-default" >
-			  	<div class="panel-heading">即時聊天</div>
+			  	<div class="panel-heading">Let's chat</div>
 			  	<div class="panel-body">
 			  		<div class="row">
 			  			<div class="col-md-9">
 			  				<div id="chat"></div>
 						    <form id="send-message">
 						      <div class="input-group">
-						        <input type="text" class="form-control" placeholder="請輸入聊天訊息..." id="message">
+						        <input type="text" class="form-control" placeholder="What do you want to say..." id="message">
 						        <span class="input-group-btn">
-						          <button type="submit" class="btn btn-default">送出留言</button>
-						        </span>
+						          <button type="submit" class="btn btn-default">Send</button>
+						      	  </span>
 						      </div>
 						    </form>
 						</div>
 						<div class="col-md-3">
-							 線上名單：
+							 Who is online?：
 							<div id="users"></div>
 						</div>
 					</div>
@@ -70,7 +72,7 @@
 				
 				$nickBox.val('');
 
-				$('#nickWrap').hide();
+				$('#N1background').hide();
 				$('#contentWrap').show();
 				
 			});
@@ -97,7 +99,7 @@
 				var datetime = now.getFullYear()+'/'+(now.getMonth()+1)+'/'+now.getDate(); 
 				  datetime += ' '+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds(); 
 
-				$chat.append("<br /><i>系統訊息: <b>[ " + msg + " ]</b> (" + 
+				$chat.append("<br /><i>Pay attention: <b>[ " + msg + " ]</b> (" + 
 					datetime + ")</i><br />");
 			});
 

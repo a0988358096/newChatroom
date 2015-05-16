@@ -1,7 +1,13 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: #FFFFFF;
+}
+
+#N1background{
+  background-image: url(http://img.taopic.com/uploads/allimg/120309/8879-1203091T53044.jpg); 
+  margin-bottom: 0px;
+  margin-top: -50px;
 }
 
 .form-signin {
@@ -9,12 +15,32 @@ body {
   padding: 15px;
   margin: 0 auto;
 }
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
+
+.form-signin-heading{
+   margin-top: 150px;
+   padding-bottom: 40px;
+   color: #FFFFFF;
+}
+
+#nickWrap{
+  margin-left: 300px;
+  margin-right: 100px;
+}
+
+#setNick{
+  padding-top: 10px;
+  margin-top: 40px;
+}
+
+.form-signin ,.form-signin .checkbox {
   margin-bottom: 10px;
 }
 .form-signin .checkbox {
   font-weight: normal;
+}
+
+#signButton{
+  margin-left: 280px;
 }
 .form-signin .form-control {
   position: relative;
