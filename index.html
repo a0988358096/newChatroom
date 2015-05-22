@@ -30,15 +30,18 @@
 			  	<div class="panel-body">
 			  		<div class="row">
 			  			<div class="col-md-9">
-			  				<div id="chat"></div>
+			  		            <div id="chat"></div>
 						    <form id="send-message">
 						      <div class="input-group">
-						        <input type="text" class="form-control" placeholder="What do you want to say..." id="message">
-						        <span class="input-group-btn">
-						          <button type="submit" class="btn btn-default">Send</button>
-						      	  </span>
+						          <input type="text" class="form-control" placeholder="What do you want to say..." id="message">
+						             <span class="input-group-btn">
+						                      <button id="chatButton" type="submit" class="btn btn-default">Send</button>
+						      	   </span>
 						      </div>
 						    </form>
+						  </div>
+						<div>
+							<input type="button" value="Want to draw?" onclick="location.href='whiteboard.html'">
 						</div>
 						<div class="col-md-3">
 							 Who is online?：
@@ -53,6 +56,7 @@
 		<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 		<script type="text/javascript">
+
 		$(function(){
 			var socket = io.connect();
 			var $frmMessage = $('#send-message');
@@ -61,6 +65,7 @@
 			var $nickBox = $('#txtNickname');
 			var $boxMessage = $('#message');
 			var $chat = $('#chat');
+			var $draw=$('#drawButton');
 			
 
 			$frmNick.submit(function(e){
@@ -82,6 +87,11 @@
 				socket.emit('send message', $boxMessage.val().trim());
 				$boxMessage.val('');
 			});
+
+			$draw.submit(function(e){
+				$('#N1background').hide();
+				$('#contentWrap').show();
+			})
 
 			socket.on('usernames', function(data){
 				var sb = '';
